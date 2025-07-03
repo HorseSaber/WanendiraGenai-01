@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fakta Sejarah • WANENDIRA AI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f172a;
+      color: #f1f5f9;
+    }
+    .title-font {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    textarea::placeholder {
+      color: #64748b;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center px-4 py-8">
+  <div class="w-full max-w-2xl mx-auto bg-slate-800/60 backdrop-blur rounded-2xl shadow-lg border border-slate-700 p-6 md:p-8">
+    
+    <!-- Header -->
+    <header class="text-center mb-6">
+      <h1 class="text-3xl md:text-4xl font-bold text-yellow-400 title-font">📜 Fakta Sejarah</h1>
+      <p class="text-slate-400 mt-1">Temukan fakta sejarah langka dan mengejutkan</p>
+    </header>
+
+    <!-- Input Prompt -->
+    <div class="space-y-4">
+      <textarea id="sejarahInput" rows="3" placeholder="Contoh: Sejarah bendera Jepang" class="w-full p-4 rounded-lg bg-slate-900 border border-slate-700 focus:ring-2 focus:ring-yellow-400 focus:outline-none resize-none"></textarea>
+      <button onclick="generateSejarah()" class="w-full bg-yellow-400 hover:bg-yellow-300 text-slate-900 font-bold py-3 rounded-lg text-lg transition-all">🔍 Cari Fakta Sejarah</button>
+    </div>
+
+    <!-- Output Area -->
+    <div id="sejarahOutput" class="mt-6 hidden">
+      <h2 class="text-xl font-semibold text-slate-200 mb-2">📦 Fakta Sejarah Ditemukan:</h2>
+      <pre id="sejarahResult" class="whitespace-pre-wrap bg-slate-900 border border-slate-700 p-4 rounded-lg max-h-[50vh] overflow-y-auto"></pre>
+      <div class="flex space-x-3 mt-3">
+        <button onclick="copySejarah()" class="flex-1 bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded-lg">📋 Salin</button>
+        <button onclick="downloadSejarah()" class="flex-1 bg-green-600 hover:bg-green-500 text-white py-2 px-4 rounded-lg">⬇️ Unduh</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-4 right-4 px-4 py-2 text-white bg-green-600 rounded-lg shadow-lg hidden"></div>
+
+  <!-- Script -->
+  <script src="js/fakta-sejarah.js"></script>
+</body>
+</html>

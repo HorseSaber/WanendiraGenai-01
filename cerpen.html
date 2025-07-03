@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WANENDIRA AI - Cerpen Cerdas</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f172a;
+      color: #f1f5f9;
+    }
+    .title-font {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    textarea::placeholder {
+      color: #64748b;
+    }
+    pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      background-color: #020617;
+      border: 1px solid #1e293b;
+    }
+    select {
+      background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 fill=%22none%22 viewBox=%220 0 20 20%22><path stroke=%22%239ca3af%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%221.5%22 d=%22M6 8l4 4 4-4%22/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      background-size: 1.5em 1.5em;
+      appearance: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center px-4 py-8">
+
+  <div class="w-full max-w-3xl bg-slate-800/50 backdrop-blur-md rounded-2xl shadow-lg p-6 border border-slate-700">
+    <header class="text-center mb-8">
+      <h1 class="text-3xl md:text-4xl font-bold text-yellow-400 title-font">✍️ WANENDIRA AI – Cerpen Pintar</h1>
+      <p class="text-slate-400 mt-2">Buat cerita pendek menarik hanya dari sebuah ide.</p>
+    </header>
+
+    <div class="space-y-5">
+      <div>
+        <label for="cerpenInput" class="block text-sm font-medium text-slate-300 mb-2">Masukkan Ide Cerita / Kutipan Awal</label>
+        <textarea id="cerpenInput" placeholder="Contoh: 'Seekor kucing tiba-tiba bisa bicara...'" rows="3" class="w-full p-3 rounded-lg bg-slate-900 border border-slate-700 focus:ring-2 focus:ring-yellow-400 resize-none"></textarea>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label for="narrativeStyle" class="block text-sm font-medium text-slate-300 mb-2">Gaya Naratif Cerita</label>
+          <select id="narrativeStyle" class="w-full p-3 rounded-lg bg-slate-900 border border-slate-700 focus:ring-2 focus:ring-yellow-400">
+            <option value="dongeng-klasik">Dongeng Klasik</option>
+            <option value="fiksi-fantasi">Fiksi Fantasi</option>
+            <option value="drama-realistis">Drama Realistis</option>
+            <option value="thriller-pendek">Thriller Pendek</option>
+            <option value="humor-gokil">Humor Gokil</option>
+            <option value="inspirasional">Inspirasi Kehidupan</option>
+            <option value="mistis-nusantara">Mistis Nusantara</option>
+            <option value="sci-fi-mini">Sci-Fi Mini</option>
+            <option value="puitis-alternatif">Puitis Alternatif</option>
+            <option value="eksperimen-formal">Eksperimen Formal</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="visualStyle" class="block text-sm font-medium text-slate-300 mb-2">Gaya Visual Prompt</label>
+          <select id="visualStyle" class="w-full p-3 rounded-lg bg-slate-900 border border-slate-700 focus:ring-2 focus:ring-yellow-400">
+            <option value="cinematic realism">Cinematic Realism</option>
+            <option value="soft pastel illustration">Soft Pastel Illustration</option>
+            <option value="moody monochrome">Moody Monochrome</option>
+            <option value="golden hour aesthetic">Golden Hour Aesthetic</option>
+            <option value="dark gritty urban">Dark Gritty Urban</option>
+            <option value="spiritual light & nature">Spiritual Light & Nature</option>
+            <option value="abstract symbolic">Abstract Symbolic</option>
+            <option value="flat character scene">Flat Character Scene</option>
+            <option value="heroic framing">Heroic Framing</option>
+          </select>
+        </div>
+      </div>
+
+      <button id="generateCerpenBtn" class="w-full bg-yellow-400 text-slate-900 font-bold py-3 px-6 rounded-lg hover:bg-yellow-300 focus:ring-4 focus:ring-yellow-400/50 flex items-center justify-center text-lg">
+        <span id="btnText">Hasilkan Cerpen</span>
+        <svg id="btnLoader" class="animate-spin h-5 w-5 ml-3 hidden text-slate-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Output -->
+    <div id="outputCerpen" class="mt-8 hidden">
+      <h2 class="text-xl font-semibold text-slate-200 mb-3">📖 Cerpen Anda</h2>
+      <pre id="cerpenResult" class="p-4 rounded-lg max-h-[60vh] overflow-y-auto"></pre>
+      <div class="flex flex-col sm:flex-row gap-4 mt-4">
+        <button onclick="copyCerpen()" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-500">📋 Salin Cerpen</button>
+        <button onclick="downloadCerpen()" class="flex-1 bg-green-600 text-white py-2 rounded-lg hover:bg-green-500">⬇️ Unduh Cerpen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="js/cerpen.js"></script>
+</body>
+</html>

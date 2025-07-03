@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard – WANENDIRA</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f172a;
+      color: #f1f5f9;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col px-4 py-6">
+  <header class="mb-6 text-center">
+    <h1 class="text-3xl font-bold text-yellow-400">🎬 WANENDIRA</h1>
+    <p class="text-slate-400 text-sm">Pilih jenis konten yang ingin kamu buat</p>
+  </header>
+
+  <main class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+    <!-- Kartu Generator -->
+    <a href="generator-motivasi.html" class="bg-slate-800 hover:bg-slate-700 rounded-xl p-3 flex flex-col items-center shadow-md transition-all">
+      <img src="https://placehold.co/300x400/0f172a/FFD700?text=Motivasi" class="rounded-lg aspect-[3/4] object-cover w-full mb-2" alt="Motivasi">
+      <span class="text-sm font-semibold text-center">🎧 Shorts Motivasi</span>
+    </a>
+
+    <a href="generator-cerpen.html" class="bg-slate-800 hover:bg-slate-700 rounded-xl p-3 flex flex-col items-center shadow-md transition-all">
+      <img src="https://placehold.co/300x400/0f172a/FFD700?text=Cerpen" class="rounded-lg aspect-[3/4] object-cover w-full mb-2" alt="Cerpen">
+      <span class="text-sm font-semibold text-center">📖 Cerpen & Dongeng</span>
+    </a>
+
+    <a href="generator-fakta.html" class="bg-slate-800 hover:bg-slate-700 rounded-xl p-3 flex flex-col items-center shadow-md transition-all">
+      <img src="https://placehold.co/300x400/0f172a/FFD700?text=Fakta" class="rounded-lg aspect-[3/4] object-cover w-full mb-2" alt="Fakta">
+      <span class="text-sm font-semibold text-center">🧠 Fakta Menarik</span>
+    </a>
+
+    <a href="generator-sejarah.html" class="bg-slate-800 hover:bg-slate-700 rounded-xl p-3 flex flex-col items-center shadow-md transition-all">
+      <img src="https://placehold.co/300x400/0f172a/FFD700?text=Sejarah" class="rounded-lg aspect-[3/4] object-cover w-full mb-2" alt="Sejarah">
+      <span class="text-sm font-semibold text-center">📜 Fakta Sejarah</span>
+    </a>
+
+    <a href="generator-gambar.html" class="bg-slate-800 hover:bg-slate-700 rounded-xl p-3 flex flex-col items-center shadow-md transition-all">
+      <img src="https://placehold.co/300x400/0f172a/FFD700?text=Gambar" class="rounded-lg aspect-[3/4] object-cover w-full mb-2" alt="Gambar">
+      <span class="text-sm font-semibold text-center">🖼️ Gambar AI</span>
+    </a>
+
+    <!-- Tambahan menu lain -->
+    <a href="#" class="bg-slate-700 border border-yellow-500 border-dashed rounded-xl p-3 flex flex-col items-center justify-center text-center shadow-inner hover:bg-slate-600 transition-all">
+      <div class="aspect-[3/4] w-full flex items-center justify-center text-yellow-400 text-4xl font-bold rounded-lg bg-slate-900">+</div>
+      <span class="text-sm font-medium mt-2 text-yellow-400">Fitur Lain (Segera)</span>
+    </a>
+  </main>
+
+</body>
+</html>
